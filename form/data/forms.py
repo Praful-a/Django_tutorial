@@ -30,6 +30,10 @@ class BaseArticleFormSet(BaseFormSet):
             if title in titles:
                 raise forms.ValidationError("Articles in a set must have distinct titles.")
             titles.append(title)
+        ordering_widget = HiddenInput
+
+        def get_ordering_widget(self):
+            return HiddenInput(attrs={'class': 'ordering'})
 
 
-ArticleFormSet = formset_factory(ArticleForm, formset=BaseArticleFormSet)
+ArticleFormSet = formset_factory(ArticleForm, formset=BaseArticleFormSet, can_order=True)
