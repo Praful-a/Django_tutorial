@@ -6,7 +6,9 @@
   </head>
   <body>
     <form method="post">
+      {% csrf_token %}
       {{form2.as_p}}
+      <button type="submit" name="button">Click</button>
     </form>
   </body>
 </html>
