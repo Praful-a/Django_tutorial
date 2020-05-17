@@ -66,6 +66,9 @@ class ContactForm(forms.Form):
             Submit('submit', 'Submit', css_class='btn-success')
         )
 
+    def compress(self, data_list):
+        return f'{data_list[0]} {data_list[1]}'
+
 
 class SnippetForm(forms.ModelForm):
     class Meta:
